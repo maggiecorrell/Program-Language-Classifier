@@ -1,0 +1,33 @@
+
+Thu, 14 Aug 2014 15:00:17 GMT
+
+MAKE:
+mv spectralnorm.csharp-2.csharp spectralnorm.csharp-2.cs
+/usr/local/bin/mcs  -optimize+ -platform:x86 -out:spectralnorm.csharp-2.csharp_run spectralnorm.csharp-2.cs
+rm spectralnorm.csharp-2.cs
+0.77s to complete and log all make actions
+
+COMMAND LINE:
+/usr/local/bin/mono --llvm --gc=sgen spectralnorm.csharp-2.csharp_run 500
+
+PROGRAM FAILED 
+
+
+PROGRAM OUTPUT:
+
+
+Unhandled Exception:
+System.ObjectDisposedException: The object was used after being disposed.
+  at System.Threading.WaitHandle.CheckDisposed () [0x00000] in <filename unknown>:0 
+  at System.Threading.WaitHandle.WaitOne () [0x00000] in <filename unknown>:0 
+  at SpectralNorm+BarrierHandle.WaitOne () [0x00000] in <filename unknown>:0 
+  at SpectralNorm+Approximate.MultiplyAtAv (System.Double[] v, System.Double[] tmp, System.Double[] AtAv) [0x00000] in <filename unknown>:0 
+  at SpectralNorm+Approximate.Evaluate () [0x00000] in <filename unknown>:0 
+  at System.Threading.Thread.StartInternal () [0x00000] in <filename unknown>:0 
+[ERROR] FATAL UNHANDLED EXCEPTION: System.ObjectDisposedException: The object was used after being disposed.
+  at System.Threading.WaitHandle.CheckDisposed () [0x00000] in <filename unknown>:0 
+  at System.Threading.WaitHandle.WaitOne () [0x00000] in <filename unknown>:0 
+  at SpectralNorm+BarrierHandle.WaitOne () [0x00000] in <filename unknown>:0 
+  at SpectralNorm+Approximate.MultiplyAtAv (System.Double[] v, System.Double[] tmp, System.Double[] AtAv) [0x00000] in <filename unknown>:0 
+  at SpectralNorm+Approximate.Evaluate () [0x00000] in <filename unknown>:0 
+  at System.Threading.Thread.StartInternal () [0x00000] in <filename unknown>:0 

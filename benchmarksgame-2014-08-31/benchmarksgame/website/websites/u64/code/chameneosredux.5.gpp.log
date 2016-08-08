@@ -1,0 +1,42 @@
+
+Tue, 22 Apr 2014 00:16:17 GMT
+
+MAKE:
+/usr/bin/g++ -c -pipe -O3 -fomit-frame-pointer -march=native   chameneosredux.gpp-5.c++ -o chameneosredux.gpp-5.c++.o &&  \
+        /usr/bin/g++ chameneosredux.gpp-5.c++.o -o chameneosredux.gpp-5.gpp_run -lpthread 
+rm chameneosredux.gpp-5.c++
+0.61s to complete and log all make actions
+
+COMMAND LINE:
+./chameneosredux.gpp-5.gpp_run 6000000
+
+PROGRAM OUTPUT:
+blue + blue -> blue
+blue + red -> yellow
+blue + yellow -> red
+red + blue -> yellow
+red + red -> red
+red + yellow -> blue
+yellow + blue -> red
+yellow + red -> blue
+yellow + yellow -> yellow
+
+ blue red yellow
+4004453 zero
+3998169 zero
+3997378 zero
+ one two zero zero zero zero zero zero
+
+ blue red yellow red yellow blue red yellow red blue
+1202373 zero
+1203550 zero
+1195252 zero
+1196908 zero
+1207229 zero
+1196432 zero
+1197922 zero
+1206365 zero
+1196479 zero
+1197490 zero
+ one two zero zero zero zero zero zero
+

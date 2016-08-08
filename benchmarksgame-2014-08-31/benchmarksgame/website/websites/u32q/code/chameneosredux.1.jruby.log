@@ -1,0 +1,40 @@
+
+Sat, 29 Mar 2014 17:22:52 GMT
+
+MAKE:
+mv chameneosredux.jruby chameneosredux.rb
+0.01s to complete and log all make actions
+
+COMMAND LINE:
+/usr/local/src/jruby-1.7.11/bin/jruby -Xcompile.invokedynamic=true -J-server -J-Xmn512m -J-Xms2048m -J-Xmx2048m chameneosredux.rb 6000000
+
+PROGRAM OUTPUT:
+blue + blue -> blue
+blue + red -> yellow
+blue + yellow -> red
+red + blue -> yellow
+red + red -> red
+red + yellow -> blue
+yellow + blue -> red
+yellow + red -> blue
+yellow + yellow -> yellow
+
+blue red yellow 
+4003754 zero
+3963668 zero
+4032578 zero
+ one two zero zero zero zero zero zero
+
+blue red yellow red yellow blue red yellow red blue 
+1169787 zero
+1197054 zero
+1202612 zero
+1217482 zero
+1184498 zero
+1217387 zero
+1204204 zero
+1180907 zero
+1198516 zero
+1227553 zero
+ one two zero zero zero zero zero zero
+

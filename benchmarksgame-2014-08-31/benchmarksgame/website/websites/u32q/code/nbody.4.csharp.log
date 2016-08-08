@@ -1,0 +1,68 @@
+
+Thu, 14 Aug 2014 08:38:26 GMT
+
+MAKE:
+mv nbody.csharp-4.csharp nbody.csharp-4.cs
+/usr/local/bin/mcs -r:/usr/local/lib/mono/4.5/Mono.Simd.dll -optimize+ -platform:x86 -out:nbody.csharp-4.csharp_run nbody.csharp-4.cs
+rm nbody.csharp-4.cs
+0.80s to complete and log all make actions
+
+COMMAND LINE:
+/usr/local/bin/mono --llvm nbody.csharp-4.csharp_run 500000
+
+PROGRAM FAILED 
+
+
+PROGRAM OUTPUT:
+
+mono: /usr/local/src/llvm/include/llvm/ADT/SmallVector.h:144: const T& llvm::SmallVectorTemplateCommon<T, <template-parameter-1-2> >::operator[](unsigned int) const [with T = unsigned int; <template-parameter-1-2> = void; llvm::SmallVectorTemplateCommon<T, <template-parameter-1-2> >::const_reference = const unsigned int&]: Assertion `begin() + idx < end()' failed.
+Stacktrace:
+
+  at <unknown> <0xffffffff>
+  at NBody.NBody.Main (string[]) <0x00043>
+  at (wrapper runtime-invoke) <Module>.runtime_invoke_void_object (object,intptr,intptr,intptr) <0xffffffff>
+
+Native stacktrace:
+
+	/usr/local/bin/mono() [0x816507a]
+	[0xb773940c]
+	[0xb7739424]
+	/lib/i386-linux-gnu/libc.so.6(gsignal+0x47) [0xb7400937]
+	/lib/i386-linux-gnu/libc.so.6(abort+0x143) [0xb7403d63]
+	/lib/i386-linux-gnu/libc.so.6(+0x27a87) [0xb73f9a87]
+	/lib/i386-linux-gnu/libc.so.6(+0x27b37) [0xb73f9b37]
+	/usr/local/bin/mono() [0x85b0b9f]
+	/usr/local/bin/mono() [0x8307dda]
+	/usr/local/bin/mono() [0x830900b]
+	/usr/local/bin/mono() [0x830a672]
+	/usr/local/bin/mono() [0x8623dc2]
+	/usr/local/bin/mono() [0x8c402ff]
+	/usr/local/bin/mono() [0x8c4044b]
+	/usr/local/bin/mono() [0x8c40602]
+	/usr/local/bin/mono() [0x85ab987]
+	/usr/local/bin/mono() [0x85abfcb]
+	/usr/local/bin/mono() [0x85ac231]
+	/usr/local/bin/mono() [0x85ca4db]
+	/usr/local/bin/mono() [0x85d037c]
+	/usr/local/bin/mono() [0x81a1568]
+	/usr/local/bin/mono() [0x80c1cfb]
+	/usr/local/bin/mono() [0x80c3184]
+	/usr/local/bin/mono() [0x80c3cee]
+	/usr/local/bin/mono() [0x8166119]
+	[0xb7724088]
+	[0xa8a94dc]
+
+Debug info from gdb:
+
+Could not attach to process.  If your uid matches the uid of the target
+process, check the setting of /proc/sys/kernel/yama/ptrace_scope, or try
+again as the root user.  For more details, see /etc/sysctl.d/10-ptrace.conf
+ptrace: Operation not permitted.
+No threads.
+
+=================================================================
+Got a SIGABRT while executing native code. This usually indicates
+a fatal error in the mono runtime or one of the native libraries 
+used by your application.
+=================================================================
+

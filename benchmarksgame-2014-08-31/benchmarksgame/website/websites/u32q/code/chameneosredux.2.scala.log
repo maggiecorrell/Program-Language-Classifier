@@ -1,0 +1,41 @@
+
+Wed, 19 Mar 2014 06:30:02 GMT
+
+MAKE:
+mv chameneosredux.scala-2.scala chameneosredux.scala
+/usr/local/src/scala-2.10.3/bin/scalac -optimise -target:jvm-1.7 chameneosredux.scala
+5.25s to complete and log all make actions
+
+COMMAND LINE:
+ /usr/local/src/jdk1.8.0/bin/java -server -XX:+TieredCompilation -XX:+AggressiveOpts  -Xbootclasspath/a:/usr/local/src/scala-2.10.3/lib/scala-library.jar:/usr/local/src/scala-2.10.3/lib/akka-actors.jar:/usr/local/src/scala-2.10.3/lib/typesafe-config.jar chameneosredux 6000000
+
+PROGRAM OUTPUT:
+blue + blue -> blue
+blue + red -> yellow
+blue + yellow -> red
+red + blue -> yellow
+red + red -> red
+red + yellow -> blue
+yellow + blue -> red
+yellow + red -> blue
+yellow + yellow -> yellow
+
+ blue red yellow
+4764191 zero
+3478296 zero
+3757513 zero
+one two zero zero zero zero zero zero
+
+ blue red yellow red yellow blue red yellow red blue
+1215674 zero
+1206355 zero
+1210443 zero
+1200282 zero
+1225458 zero
+1180146 zero
+1202040 zero
+1183836 zero
+1177666 zero
+1198100 zero
+one two zero zero zero zero zero zero
+

@@ -1,0 +1,326 @@
+
+Thu, 10 Jul 2014 17:55:12 GMT
+
+MAKE:
+/usr/local/src/go/bin/go build -o binarytrees.go-3.go_run
+0.36s to complete and log all make actions
+
+COMMAND LINE:
+./binarytrees.go-3.go_run 20
+
+PROGRAM FAILED 
+
+
+PROGRAM OUTPUT:
+stretch tree of depth 21	 check: -1
+
+runtime: memory allocated by OS (0xb719a000) not in usable range [0x18300000,0x98300000)
+runtime: memory allocated by OS (0xb727a000) not in usable range [0x18300000,0x98300000)
+runtime: out of memory: cannot allocate 131072-byte block (1879048192 in use)
+fatal error: out of memory
+
+goroutine 21 [running]:
+runtime.throw(0x8171645)
+	/usr/local/go/src/pkg/runtime/panic.c:520 +0x71 fp=0xb760dc2c sp=0xb760dc20
+largealloc(0x0, 0xb760dc84)
+	/usr/local/go/src/pkg/runtime/malloc.goc:226 +0xaf fp=0xb760dc50 sp=0xb760dc2c
+runtime.mallocgc(0x1d4c0, 0x80ef021, 0x0)
+	/usr/local/go/src/pkg/runtime/malloc.goc:169 +0xbc fp=0xb760dc84 sp=0xb760dc50
+cnew(0x80ef020, 0x2710, 0x1)
+	/usr/local/go/src/pkg/runtime/malloc.goc:836 +0xad fp=0xb760dc94 sp=0xb760dc84
+runtime.cnewarray(0x80ef020, 0x2710)
+	/usr/local/go/src/pkg/runtime/malloc.goc:849 +0x3f fp=0xb760dca4 sp=0xb760dc94
+makeslice1(0x80d5560, 0x2710, 0x2710, 0xb760dce4)
+	/usr/local/go/src/pkg/runtime/slice.goc:55 +0x4b fp=0xb760dcb0 sp=0xb760dca4
+runtime.makeslice(0x80d5560, 0x2710, 0x0, 0x2710, 0x0, 0x0, 0x2710, 0x2710)
+	/usr/local/go/src/pkg/runtime/slice.goc:36 +0xb2 fp=0xb760dcd0 sp=0xb760dcb0
+main.bottomUpTree(0xff45f3e7, 0x0, 0x18300060, 0x882c600c)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:92 +0x5e fp=0xb760dd34 sp=0xb760dcd0
+main.bottomUpTree(0xffa2f9f4, 0x1, 0x18300060, 0x882c6024)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122 fp=0xb760dd98 sp=0xb760dd34
+main.bottomUpTree(0xffd17cfa, 0x2, 0x18300060, 0x882c6084)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149 fp=0xb760ddfc sp=0xb760dd98
+main.bottomUpTree(0xffe8be7d, 0x3, 0x18300060, 0x882c615c)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149 fp=0xb760de60 sp=0xb760ddfc
+main.bottomUpTree(0xfff45f3f, 0x4, 0x18300060, 0x882c621c)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122 fp=0xb760dec4 sp=0xb760de60
+main.bottomUpTree(0xfffa2fa0, 0x5, 0x18300060, 0x882c639c)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122 fp=0xb760df28 sp=0xb760dec4
+main.bottomUpTree(0xfffd17d0, 0x6, 0x18300060, 0x882c699c)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149 fp=0xb760df8c sp=0xb760df28
+main.func·001(0x6)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:73 +0xdc fp=0xb760dfc8 sp=0xb760df8c
+runtime.goexit()
+	/usr/local/go/src/pkg/runtime/proc.c:1445 fp=0xb760dfcc sp=0xb760dfc8
+created by main.main
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:79 +0x2bf
+
+goroutine 16 [semacquire]:
+sync.runtime_Semacquire(0x18300050)
+	/usr/local/go/src/pkg/runtime/sema.goc:199 +0x37
+sync.(*WaitGroup).Wait(0x183201a0)
+	/usr/local/go/src/pkg/sync/waitgroup.go:129 +0x12d
+main.main()
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:81 +0x2d6
+
+goroutine 19 [finalizer wait]:
+runtime.park(0x8059fe0, 0x8173aa0, 0x8172ec9)
+	/usr/local/go/src/pkg/runtime/proc.c:1369 +0x94
+runtime.parkunlock(0x8173aa0, 0x8172ec9)
+	/usr/local/go/src/pkg/runtime/proc.c:1385 +0x3f
+runfinq()
+	/usr/local/go/src/pkg/runtime/mgc0.c:2644 +0xc5
+runtime.goexit()
+	/usr/local/go/src/pkg/runtime/proc.c:1445
+
+goroutine 20 [runnable]:
+main.bottomUpTree(0xff33f5de, 0x0, 0x1cd26000, 0x87718fe0)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:91
+main.bottomUpTree(0xff99faef, 0x1, 0x1cd26000, 0x8771901c)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0xffccfd78, 0x2, 0x1cd26000, 0x8771904c)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0xffe67ebc, 0x3, 0x1cd26000, 0x8771910c)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0xfff33f5e, 0x4, 0x1cd26000, 0x8771928c)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.func·001(0x4)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:73 +0xdc
+created by main.main
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:79 +0x2bf
+
+goroutine 22 [runnable]:
+main.bottomUpTree(0xff9ffa56, 0x1, 0x1cd26010, 0x86bde5c0)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:91
+main.bottomUpTree(0xffcffd2b, 0x2, 0x1cd26010, 0x86bde62c)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0xffe7fe96, 0x3, 0x1cd26010, 0x86bde68c)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0xfff3ff4b, 0x4, 0x1cd26010, 0x86bde818)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0xfff9ffa6, 0x5, 0x1cd26010, 0x86bde998)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0xfffcffd3, 0x6, 0x1cd26010, 0x86bdefa4)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0xfffe7fea, 0x7, 0x1cd26010, 0x86bdf5a4)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0xffff3ff5, 0x8, 0x1cd26010, 0x86be0da4)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.func·001(0x8)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:73 +0xdc
+created by main.main
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:79 +0x2bf
+
+goroutine 23 [runnable]:
+main.(*Node).ItemCheck(0x879c2f58, 0xba2274)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:110
+main.(*Node).ItemCheck(0x879c2f64, 0x5d1139)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:114 +0x44
+main.(*Node).ItemCheck(0x879c2f70, 0x2e889c)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:114 +0x44
+main.(*Node).ItemCheck(0x879c2fd0, 0x17444d)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:114 +0x5b
+main.(*Node).ItemCheck(0x879c2fdc, 0xba226)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:114 +0x44
+main.(*Node).ItemCheck(0x879c315c, 0x5d112)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:114 +0x5b
+main.(*Node).ItemCheck(0x879c345c, 0x2e888)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:114 +0x5b
+main.(*Node).ItemCheck(0x879c3a5c, 0x17443)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:114 +0x5b
+main.(*Node).ItemCheck(0x879c3a68, 0xba21)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:114 +0x44
+main.(*Node).ItemCheck(0x879c3a74, 0x5d10)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:114 +0x44
+main.(*Node).ItemCheck(0x879c6a74, 0xa)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:114 +0x5b
+main.func·001(0xa)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:72 +0xb0
+created by main.main
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:79 +0x2bf
+
+goroutine 24 [runnable]:
+main.bottomUpTree(0xc29232, 0x0, 0x1cd26020, 0x88216fe0)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:91
+main.bottomUpTree(0x614919, 0x1, 0x1cd26020, 0x88217034)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0x30a48d, 0x2, 0x1cd26020, 0x88217064)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0x185247, 0x3, 0x1cd26020, 0x882170c4)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0xc2924, 0x4, 0x1cd26020, 0x88217184)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0x61492, 0x5, 0x1cd26020, 0x88217484)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0x30a49, 0x6, 0x1cd26020, 0x88217aa8)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0x18525, 0x7, 0x1cd26020, 0x882180a8)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0xc293, 0x8, 0x1cd26020, 0x88218ca8)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0x614a, 0x9, 0x1cd26020, 0x8821a4a8)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0x30a5, 0xa, 0x1cd26020, 0xfff3d6ff)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0x1853, 0xb, 0x1cd26020, 0x882264c0)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0xc2a, 0xc, 0x1cd26020, 0x881f7000)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.func·001(0xc)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:72 +0xa4
+created by main.main
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:79 +0x2bf
+
+goroutine 25 [runnable]:
+main.bottomUpTree(0xbfd6c8, 0x0, 0x18300070, 0x87178ff8)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:91
+main.bottomUpTree(0x5feb64, 0x1, 0x18300070, 0x87179028)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0x2ff5b2, 0x2, 0x18300070, 0x87179088)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0x17fad9, 0x3, 0x18300070, 0x8717916c)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0xbfd6d, 0x4, 0x18300070, 0x8717922c)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0x5feb7, 0x5, 0x18300070, 0x871793ac)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0x2ff5c, 0x6, 0x18300070, 0x871796ac)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0x17fae, 0x7, 0x18300070, 0x8717a2ac)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0xbfd7, 0x8, 0x18300070, 0x8717bab8)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0x5fec, 0x9, 0x18300070, 0x8717d2b8)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0x2ff6, 0xa, 0x18300070, 0x871832b8)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0x17fb, 0xb, 0x18300070, 0x87153e04)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0xbfe, 0xc, 0x18300070, 0x8715fe04)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0x5ff, 0xd, 0x18300070, 0x87119490)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0x300, 0xe, 0x18300070, 0x8710dfd0)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.func·001(0xe)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:72 +0xa4
+created by main.main
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:79 +0x2bf
+
+goroutine 26 [runnable]:
+main.bottomUpTree(0x2e20ce, 0x2, 0x1cd26030, 0x86935788)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:91
+main.bottomUpTree(0x171067, 0x3, 0x1cd26030, 0x86935854)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0xb8834, 0x4, 0x1cd26030, 0x86935914)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0x5c41a, 0x5, 0x1cd26030, 0x86935c14)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0x2e20d, 0x6, 0x1cd26030, 0x8693622c)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0x17107, 0x7, 0x1cd26030, 0x8693682c)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0xb884, 0x8, 0x1cd26030, 0x8693742c)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0x5c42, 0x9, 0x1cd26030, 0x868fef6c)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0x2e21, 0xa, 0x1cd26030, 0x86904fa8)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0x1711, 0xb, 0x1cd26030, 0x8690afa8)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0xb89, 0xc, 0x1cd26030, 0x86916fa8)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0x5c5, 0xd, 0x1cd26030, 0x868f3ae8)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0x2e3, 0xe, 0x1cd26030, 0x868ad168)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0x172, 0xf, 0x1cd26030, 0x8685b328)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0xb9, 0x10, 0x1cd26030, 0x866d8568)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.func·001(0x10)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:72 +0xa4
+created by main.main
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:79 +0x2bf
+
+goroutine 27 [runnable]:
+main.bottomUpTree(0xbb85f7, 0x0, 0x18300080, 0x87cf5178)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:91
+main.bottomUpTree(0x5dc2fc, 0x1, 0x18300080, 0x87cf5190)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0x2ee17e, 0x2, 0x18300080, 0x87cf51f0)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0x1770bf, 0x3, 0x18300080, 0x87cf52bc)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0xbb860, 0x4, 0x18300080, 0x87cf537c)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0x5dc30, 0x5, 0x18300080, 0x87cf567c)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0x2ee18, 0x6, 0x18300080, 0x87cf5c7c)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0x1770c, 0x7, 0x18300080, 0x87cf687c)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0xbb86, 0x8, 0x18300080, 0x87cf807c)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0x5dc3, 0x9, 0x18300080, 0x87cfb088)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0x2ee2, 0xa, 0x18300080, 0x87cfe088)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0x1771, 0xb, 0x18300080, 0x87ccebf8)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0xbb9, 0xc, 0x18300080, 0x87cdabf8)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0x5dd, 0xd, 0x18300080, 0x87cb7738)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0x2ef, 0xe, 0x18300080, 0x87cac278)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0x178, 0xf, 0x18300080, 0x87c1ef78)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0xbc, 0x10, 0x18300080, 0x87a9c1b8)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0x5e, 0x11, 0x18300080, 0x86008638)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0x2f, 0x12, 0x18300080, 0x83152f38)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.func·001(0x12)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:72 +0xa4
+created by main.main
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:79 +0x2bf
+
+goroutine 28 [runnable]:
+main.bottomUpTree(0xfff995c8, 0x5, 0x1cd26040, 0x873fdba8)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:91
+main.bottomUpTree(0xfffccae4, 0x6, 0x1cd26040, 0x873fe1a8)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0xfffe6572, 0x7, 0x1cd26040, 0x873feda8)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0xffff32b9, 0x8, 0x1cd26040, 0x874005cc)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0xffff995d, 0x9, 0x1cd26040, 0x873c690c)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0xffffccaf, 0xa, 0x1cd26040, 0x873c990c)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0xffffe658, 0xb, 0x1cd26040, 0x873cf90c)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0xfffff32c, 0xc, 0x1cd26040, 0x873ac44c)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0xfffff996, 0xd, 0x1cd26040, 0x873a0f8c)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0xfffffccb, 0xe, 0x1cd26040, 0x87313c98)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0xfffffe66, 0xf, 0x1cd26040, 0x872c1e58)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0xffffff33, 0x10, 0x1cd26040, 0x870130a4)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0xffffff9a, 0x11, 0x1cd26040, 0x842262e4)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0xffffffcd, 0x12, 0x1cd26040, 0xbff)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:99 +0x149
+main.bottomUpTree(0xffffffe7, 0x13, 0x1cd26040, 0x7ee1c03c)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.bottomUpTree(0xfffffff4, 0x14, 0x1cd26040, 0x76591d7c)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:98 +0x122
+main.func·001(0x14)
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:73 +0xdc
+created by main.main
+	/home/dunham/benchmarksgame_onecore/binarytrees/tmp/binarytrees.go-3.go:79 +0x2bf

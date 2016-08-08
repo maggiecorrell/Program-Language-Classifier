@@ -1,0 +1,15 @@
+
+Tue, 18 Mar 2014 22:49:03 GMT
+
+MAKE:
+mv spectralnorm.java spectralnorm.java
+mv: ‘spectralnorm.java’ and ‘spectralnorm.java’ are the same file
+make: [spectralnorm.java_run] Error 1 (ignored)
+/usr/local/src/jdk1.8.0/bin/javac spectralnorm.java
+0.77s to complete and log all make actions
+
+COMMAND LINE:
+/usr/local/src/jdk1.8.0/bin/java  -server -XX:+TieredCompilation -XX:+AggressiveOpts spectralnorm 5500
+
+PROGRAM OUTPUT:
+1.274224153

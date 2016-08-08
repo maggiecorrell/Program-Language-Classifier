@@ -1,0 +1,13 @@
+
+Thu, 03 Apr 2014 21:38:48 GMT
+
+MAKE:
+/usr/local/src/rust-0.10/bin/rustc --opt-level=3 spectralnorm.rs -o spectralnorm.rust_run
+rm spectralnorm.rs
+4.60s to complete and log all make actions
+
+COMMAND LINE:
+./spectralnorm.rust_run 5500
+
+PROGRAM OUTPUT:
+1.274224153

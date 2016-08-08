@@ -1,0 +1,17 @@
+
+Thu, 24 Apr 2014 20:05:11 GMT
+
+MAKE:
+/usr/bin/gcc -pipe -Wall -O3 -fomit-frame-pointer -march=native -pthread threadring.c -o threadring.gcc_run 
+threadring.c: In function ‘main’:
+threadring.c:72:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+rm threadring.c
+0.12s to complete and log all make actions
+
+COMMAND LINE:
+./threadring.gcc_run 50000000
+
+PROGRAM OUTPUT:
+292

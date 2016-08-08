@@ -1,0 +1,10 @@
+
+Fri, 28 Mar 2014 20:10:54 GMT
+
+COMMAND LINE:
+/usr/local/src/hhvmdev/hhvm/hphp/hhvm/hhvm  fannkuchredux.hack-2.hack 12
+
+TIMED OUT after 4800s
+
+
+PROGRAM OUTPUT:

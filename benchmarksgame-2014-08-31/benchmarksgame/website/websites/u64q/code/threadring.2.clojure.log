@@ -1,0 +1,14 @@
+
+Fri, 18 Apr 2014 21:07:30 GMT
+
+MAKE:
+mv threadring.clojure-2.clojure threadring.clj
+/usr/local/src/jdk1.8.0/bin/java -Dclojure.compile.path=. -cp .:/usr/local/src/clojure/clojure-1.6.0.jar clojure.lang.Compile threadring
+Compiling threadring to .
+1.46s to complete and log all make actions
+
+COMMAND LINE:
+/usr/local/src/jdk1.8.0/bin/java -server -XX:+TieredCompilation -XX:+AggressiveOpts  -cp .:/usr/local/src/clojure/clojure-1.6.0.jar threadring 50000000
+
+PROGRAM OUTPUT:
+292

@@ -1,0 +1,10 @@
+
+Fri, 29 Aug 2014 01:52:51 GMT
+
+COMMAND LINE:
+/usr/local/src/dart-sdk/bin/dart  regexdna.dart-2.dart 0 < regexdna-input500000.txt
+
+TIMED OUT after 600s
+
+
+PROGRAM OUTPUT:

@@ -1,0 +1,14 @@
+
+Wed, 19 Mar 2014 08:35:52 GMT
+
+MAKE:
+mv fannkuchredux.scala-2.scala fannkuchredux.scala
+/usr/local/src/scala-2.10.3/bin/scalac -optimise -target:jvm-1.7 fannkuchredux.scala
+4.67s to complete and log all make actions
+
+COMMAND LINE:
+ /usr/local/src/jdk1.8.0/bin/java -server -XX:+TieredCompilation -XX:+AggressiveOpts  -Xbootclasspath/a:/usr/local/src/scala-2.10.3/lib/scala-library.jar:/usr/local/src/scala-2.10.3/lib/akka-actors.jar:/usr/local/src/scala-2.10.3/lib/typesafe-config.jar fannkuchredux 12
+
+PROGRAM OUTPUT:
+3968050
+Pfannkuchen(12) = 65

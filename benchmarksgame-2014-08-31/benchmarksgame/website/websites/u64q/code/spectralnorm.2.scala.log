@@ -1,0 +1,15 @@
+
+Wed, 19 Mar 2014 02:57:03 GMT
+
+MAKE:
+mv spectralnorm.scala-2.scala spectralnorm.scala
+/usr/local/src/scala-2.10.3/bin/scalac -optimise -target:jvm-1.7 spectralnorm.scala
+warning: there were 7 deprecation warning(s); re-run with -deprecation for details
+one warning found
+5.20s to complete and log all make actions
+
+COMMAND LINE:
+ /usr/local/src/jdk1.8.0/bin/java -server -XX:+TieredCompilation -XX:+AggressiveOpts  -Xbootclasspath/a:/usr/local/src/scala-2.10.3/lib/scala-library.jar:/usr/local/src/scala-2.10.3/lib/akka-actors.jar:/usr/local/src/scala-2.10.3/lib/typesafe-config.jar spectralnorm 5500
+
+PROGRAM OUTPUT:
+1.274224153

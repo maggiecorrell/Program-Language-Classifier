@@ -1,0 +1,14 @@
+
+Tue, 08 Jul 2014 00:12:34 GMT
+
+MAKE:
+/usr/local/src/rust-0.11.0-i686-unknown-linux-gnu/bin/rustc --opt-level=3 fannkuchredux.rs -o fannkuchredux.rust_run
+rm fannkuchredux.rs
+3.90s to complete and log all make actions
+
+COMMAND LINE:
+./fannkuchredux.rust_run 12
+
+PROGRAM OUTPUT:
+3968050
+Pfannkuchen(12) = 65

@@ -1,0 +1,9 @@
+
+Fri, 28 Mar 2014 21:32:09 GMT
+
+COMMAND LINE:
+/usr/local/src/hhvmdev/hhvm/hphp/hhvm/hhvm  fannkuchredux.hack 12
+
+PROGRAM OUTPUT:
+3968050
+Pfannkuchen(12) = 65

@@ -1,0 +1,12 @@
+
+Thu, 19 Jun 2014 06:42:07 GMT
+
+MAKE:
+/usr/local/src/go/bin/go build -o spectralnorm.go-2.go_run
+0.27s to complete and log all make actions
+
+COMMAND LINE:
+./spectralnorm.go-2.go_run 5500
+
+PROGRAM OUTPUT:
+1.274224153

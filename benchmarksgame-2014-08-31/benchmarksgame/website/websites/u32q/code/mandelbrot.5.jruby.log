@@ -1,0 +1,21 @@
+
+Sun, 24 Aug 2014 00:42:24 GMT
+
+MAKE:
+mv mandelbrot.jruby-5.jruby mandelbrot.rb
+0.04s to complete and log all make actions
+
+COMMAND LINE:
+/usr/local/src/jruby-1.7.11/bin/jruby -Xcompile.invokedynamic=true -J-server -J-Xmn512m -J-Xms2048m -J-Xmx2048m mandelbrot.rb 16000
+
+PROGRAM FAILED 
+
+
+(BINARY) PROGRAM OUTPUT NOT SHOWN
+
+ThreadError: unable to create new native thread
+  initialize at org/jruby/RubyThread.java:440
+         new at org/jruby/RubyThread.java:389
+      (root) at mandelbrot.rb:161
+        each at org/jruby/RubyRange.java:479
+      (root) at mandelbrot.rb:160

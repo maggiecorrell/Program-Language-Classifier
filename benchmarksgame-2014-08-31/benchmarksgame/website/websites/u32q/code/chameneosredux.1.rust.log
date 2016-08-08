@@ -1,0 +1,53 @@
+
+Thu, 03 Apr 2014 23:58:11 GMT
+
+MAKE:
+/usr/local/src/rust-0.10/bin/rustc --opt-level=3 chameneosredux.rs -o chameneosredux.rust_run
+chameneosredux.rs:20:1: 20:33 warning: type `color` should have a camel case identifier, #[warn(non_camel_case_types)] on by default
+chameneosredux.rs:20 enum color { Red, Yellow, Blue }
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+chameneosredux.rs:160:13: 160:29 warning: variable does not need to be mutable, #[warn(unused_mut)] on by default
+chameneosredux.rs:160         let mut fst_creature: CreatureInfo = from_creatures.recv();
+                                  ^~~~~~~~~~~~~~~~
+chameneosredux.rs:161:13: 161:29 warning: variable does not need to be mutable, #[warn(unused_mut)] on by default
+chameneosredux.rs:161         let mut snd_creature: CreatureInfo = from_creatures.recv();
+                                  ^~~~~~~~~~~~~~~~
+rm chameneosredux.rs
+8.80s to complete and log all make actions
+
+COMMAND LINE:
+./chameneosredux.rust_run 60000
+
+UNEXPECTED OUTPUT 
+
+first file is short
+
+PROGRAM OUTPUT:
+blue + blue -> blue
+blue + red -> yellow
+blue + yellow -> red
+red + blue -> yellow
+red + red -> red
+red + yellow -> blue
+yellow + blue -> red
+yellow + red -> blue
+yellow + yellow -> yellow
+
+ blue red yellow
+43197  zero
+37361  zero
+39442  zero
+ one two zero zero zero zero 
+
+ blue red yellow red yellow blue red yellow red blue
+13323  zero
+10787  zero
+10703  zero
+13015  zero
+10781  zero
+10760  zero
+12841  zero
+12723  zero
+12614  zero
+12453  zero
+ one two zero zero zero zero 

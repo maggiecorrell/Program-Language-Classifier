@@ -1,0 +1,8 @@
+
+Sat, 29 Mar 2014 01:16:32 GMT
+
+COMMAND LINE:
+/usr/local/src/hhvmdev/hhvm/hphp/hhvm/hhvm  spectralnorm.hack-3.hack 5500
+
+PROGRAM OUTPUT:
+1.274224153

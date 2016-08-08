@@ -1,0 +1,14 @@
+
+Wed, 19 Mar 2014 06:37:06 GMT
+
+MAKE:
+mv fannkuchredux.java-3.java fannkuchredux.java
+/usr/local/src/jdk1.8.0/bin/javac fannkuchredux.java
+0.83s to complete and log all make actions
+
+COMMAND LINE:
+/usr/local/src/jdk1.8.0/bin/java  -server -XX:+TieredCompilation -XX:+AggressiveOpts fannkuchredux 12
+
+PROGRAM OUTPUT:
+3968050
+Pfannkuchen(12) = 65

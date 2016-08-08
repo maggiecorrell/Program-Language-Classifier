@@ -1,0 +1,42 @@
+
+Wed, 13 Aug 2014 20:06:14 GMT
+
+MAKE:
+mv chameneosredux.csharp chameneosredux.cs
+/usr/local/bin/mcs  -optimize+ -platform:x64 -out:chameneosredux.csharp_run chameneosredux.cs
+rm chameneosredux.cs
+0.26s to complete and log all make actions
+
+COMMAND LINE:
+/usr/local/bin/mono --llvm --gc=sgen chameneosredux.csharp_run 6000000
+
+PROGRAM OUTPUT:
+blue + blue -> blue
+blue + red -> yellow
+blue + yellow -> red
+red + blue -> yellow
+red + red -> red
+red + yellow -> blue
+yellow + blue -> red
+yellow + red -> blue
+yellow + yellow -> yellow
+
+ blue red yellow
+3995378 zero
+3977788 zero
+4026834 zero
+ one two zero zero zero zero zero zero
+
+ blue red yellow red yellow blue red yellow red blue
+1202927 zero
+1200301 zero
+1203193 zero
+1191641 zero
+1194637 zero
+1204584 zero
+1198259 zero
+1193023 zero
+1204871 zero
+1206564 zero
+ one two zero zero zero zero zero zero
+

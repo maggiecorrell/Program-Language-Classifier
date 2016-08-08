@@ -1,0 +1,15 @@
+
+Thu, 14 Aug 2014 08:44:04 GMT
+
+MAKE:
+mv nbody.csharp-3.csharp nbody.csharp-3.cs
+/usr/local/bin/mcs -r:/usr/local/lib/mono/4.5/Mono.Simd.dll -optimize+ -platform:x86 -out:nbody.csharp-3.csharp_run nbody.csharp-3.cs
+rm nbody.csharp-3.cs
+0.78s to complete and log all make actions
+
+COMMAND LINE:
+/usr/local/bin/mono --llvm nbody.csharp-3.csharp_run 50000000
+
+PROGRAM OUTPUT:
+-0.169075164
+-0.169059907

@@ -1,0 +1,15 @@
+
+Wed, 19 Mar 2014 09:45:08 GMT
+
+MAKE:
+mv spectralnorm.scala spectralnorm.scala
+mv: ‘spectralnorm.scala’ and ‘spectralnorm.scala’ are the same file
+make: [spectralnorm.scala_run] Error 1 (ignored)
+/usr/local/src/scala-2.10.3/bin/scalac -optimise -target:jvm-1.7 spectralnorm.scala
+3.83s to complete and log all make actions
+
+COMMAND LINE:
+ /usr/local/src/jdk1.8.0/bin/java -server -XX:+TieredCompilation -XX:+AggressiveOpts  -Xbootclasspath/a:/usr/local/src/scala-2.10.3/lib/scala-library.jar:/usr/local/src/scala-2.10.3/lib/akka-actors.jar:/usr/local/src/scala-2.10.3/lib/typesafe-config.jar spectralnorm 5500
+
+PROGRAM OUTPUT:
+1.274224153

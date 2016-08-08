@@ -1,0 +1,36 @@
+
+Fri, 18 Apr 2014 21:02:22 GMT
+
+MAKE:
+mv regexdna.clojure-3.clojure regexdna.clj
+/usr/local/src/jdk1.8.0/bin/java -Dclojure.compile.path=. -cp .:/usr/local/src/clojure/clojure-1.6.0.jar clojure.lang.Compile regexdna
+Compiling regexdna to .
+1.57s to complete and log all make actions
+
+COMMAND LINE:
+/usr/local/src/jdk1.8.0/bin/java -server -XX:+TieredCompilation -XX:+AggressiveOpts -Xmx512m -cp .:/usr/local/src/clojure/clojure-1.6.0.jar regexdna 0 < regexdna-input5000000.txt
+
+PROGRAM FAILED 
+
+
+PROGRAM OUTPUT:
+
+Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+	at java.util.Arrays.copyOf(Arrays.java:3326)
+	at java.lang.AbstractStringBuilder.expandCapacity(AbstractStringBuilder.java:137)
+	at java.lang.AbstractStringBuilder.ensureCapacityInternal(AbstractStringBuilder.java:121)
+	at java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:514)
+	at java.lang.StringBuffer.append(StringBuffer.java:352)
+	at java.util.regex.Matcher.appendTail(Matcher.java:911)
+	at java.util.regex.Matcher.replaceAll(Matcher.java:958)
+	at clojure.string$replace.invoke(string.clj:105)
+	at regexdna$one_replacement.invoke(regexdna.clj:55)
+	at clojure.core.protocols$fn__6086.invoke(protocols.clj:143)
+	at clojure.core.protocols$fn__6057$G__6052__6066.invoke(protocols.clj:19)
+	at clojure.core.protocols$seq_reduce.invoke(protocols.clj:31)
+	at clojure.core.protocols$fn__6080.invoke(protocols.clj:48)
+	at clojure.core.protocols$fn__6031$G__6026__6044.invoke(protocols.clj:13)
+	at clojure.core$reduce.invoke(core.clj:6289)
+	at regexdna$_main.doInvoke(regexdna.clj:80)
+	at clojure.lang.RestFn.applyTo(RestFn.java:137)
+	at regexdna.main(Unknown Source)

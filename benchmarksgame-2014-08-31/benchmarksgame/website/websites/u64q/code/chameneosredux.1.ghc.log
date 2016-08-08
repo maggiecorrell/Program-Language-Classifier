@@ -1,0 +1,44 @@
+
+Wed, 16 Apr 2014 18:53:54 GMT
+
+MAKE:
+mv chameneosredux.ghc chameneosredux.hs
+/usr/local/src/ghc-7.8.2/bin/ghc --make -fllvm -O2 -XBangPatterns -threaded -rtsopts -XCPP -XGeneralizedNewtypeDeriving chameneosredux.hs -o chameneosredux.ghc_run
+[1 of 1] Compiling Main             ( chameneosredux.hs, chameneosredux.o )
+Linking chameneosredux.ghc_run ...
+rm chameneosredux.hs
+1.98s to complete and log all make actions
+
+COMMAND LINE:
+./chameneosredux.ghc_run +RTS -qa -qm -N4 -RTS 6000000
+
+PROGRAM OUTPUT:
+blue + blue -> blue
+blue + red -> yellow
+blue + yellow -> red
+red + blue -> yellow
+red + red -> red
+red + yellow -> blue
+yellow + blue -> red
+yellow + red -> blue
+yellow + yellow -> yellow
+
+ blue red yellow
+3873689 zero
+4017632 zero
+4108679 zero
+ one two zero zero zero zero zero zero
+
+ blue red yellow red yellow blue red yellow red blue
+1199997 zero
+1199999 zero
+1200001 zero
+1200000 zero
+1200000 zero
+1200000 zero
+1200001 zero
+1200001 zero
+1200001 zero
+1200000 zero
+ one two zero zero zero zero zero zero
+

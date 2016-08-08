@@ -1,0 +1,12 @@
+
+Tue, 18 Mar 2014 22:32:05 GMT
+
+MAKE:
+mv mandelbrot.java-2.java mandelbrot.java
+/usr/local/src/jdk1.8.0/bin/javac mandelbrot.java
+0.86s to complete and log all make actions
+
+COMMAND LINE:
+/usr/local/src/jdk1.8.0/bin/java  -server -XX:+TieredCompilation -XX:+AggressiveOpts mandelbrot 16000
+
+(BINARY) PROGRAM OUTPUT NOT SHOWN

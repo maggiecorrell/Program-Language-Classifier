@@ -1,0 +1,9 @@
+
+Thu, 28 Aug 2014 19:35:01 GMT
+
+COMMAND LINE:
+/usr/local/src/dart-sdk/bin/dart  nbody.dart-3.dart 50000000
+
+PROGRAM OUTPUT:
+-0.169075164
+-0.169059907

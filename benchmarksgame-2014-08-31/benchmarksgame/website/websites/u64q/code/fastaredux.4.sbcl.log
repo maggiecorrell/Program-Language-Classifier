@@ -1,0 +1,416 @@
+
+Sun, 01 Jun 2014 00:39:19 GMT
+
+MAKE:
+cp: ‘fastaredux.sbcl-4.sbcl’ and ‘./fastaredux.sbcl-4.sbcl’ are the same file
+SBCL built with: /usr/local/bin/sbcl --userinit /dev/null --batch --eval '(load "fastaredux.sbcl-4.sbcl_compile")'
+### START fastaredux.sbcl-4.sbcl_compile
+(handler-bind ((sb-ext:defconstant-uneql      (lambda (c) (abort c))))      (load (compile-file "fastaredux.sbcl-4.sbcl" ))) (save-lisp-and-die "sbcl.core" :purify t)
+### END fastaredux.sbcl-4.sbcl_compile
+
+; compiling file "/home/dunham/benchmarksgame/bench/fastaredux/fastaredux.sbcl-4.sbcl" (written 23 JAN 2013 08:18:00 PM):
+; compiling (DECLAIM (OPTIMIZE # ...))
+; compiling (DEFCONSTANT LINE-LENGTH ...)
+; compiling (DEFCONSTANT OUT-BUFFER-SIZE ...)
+; compiling (DEFCONSTANT LOOKUP-SIZE ...)
+; compiling (DEFCONSTANT LOOKUP-SCALE ...)
+; compiling (DEFCONSTANT LIM ...)
+; compiling (DEFSTRUCT FREQ ...)
+; file: /home/dunham/benchmarksgame/bench/fastaredux/fastaredux.sbcl-4.sbcl
+; in: DEFSTRUCT FREQ
+;     (DEFSTRUCT FREQ (C #\z :TYPE CHARACTER) (M 0.0d0 :TYPE DOUBLE-FLOAT))
+; --> PROGN SB-KERNEL::DELAY-DEFSTRUCT-FUNCTIONS PROGN DEFUN PROGN 
+; ==>
+;   (SB-IMPL::%DEFUN 'FREQ-M
+;                    (SB-INT:NAMED-LAMBDA FREQ-M
+;                        (SB-KERNEL:INSTANCE)
+;                      (BLOCK FREQ-M
+;                        (TRULY-THE DOUBLE-FLOAT
+;                                   (SB-KERNEL:%RAW-INSTANCE-REF/DOUBLE # 0))))
+;                    NIL 'NIL (SB-C:SOURCE-LOCATION))
+; 
+; note: doing float to pointer coercion (cost 13) to "<return value>"
+
+; ==>
+;   (SB-IMPL::%DEFUN '(SETF FREQ-M)
+;                    (SB-INT:NAMED-LAMBDA (SETF FREQ-M)
+;                        (SB-KERNEL::VALUE SB-KERNEL:INSTANCE)
+;                      (BLOCK FREQ-M (SETF # #)))
+;                    NIL 'NIL (SB-C:SOURCE-LOCATION))
+; 
+; note: doing float to pointer coercion (cost 13) to "<return value>"
+
+; compiling (DEFMACRO FREQUIFY ...)
+; compiling (DEFUN FREQUIFY-FN ...)
+; compiling (DEFUN SUM-AND-SCALE ...)
+; compiling (DEFMACRO FX ...)
+; compiling (DEFSETF OUT-CT ...)
+; compiling (DECLAIM (INLINE RANDOM-NEXT))
+; compiling (DEFPARAMETER *LAST* ...)
+; compiling (DECLAIM (TYPE # ...))
+; compiling (DEFCONSTANT IM ...)
+; compiling (DEFCONSTANT IA ...)
+; compiling (DEFCONSTANT IC ...)
+; compiling (DEFCONSTANT SCALE ...)
+; compiling (DEFCONSTANT IM-MINUS-1500 ...)
+; compiling (DEFUN RANDOM-NEXT ...)
+; file: /home/dunham/benchmarksgame/bench/fastaredux/fastaredux.sbcl-4.sbcl
+; in: DEFUN RANDOM-NEXT
+;     (MOD (+ (FX (* LAST IA)) IC) IM)
+; --> LET REM NTH-VALUE MULTIPLE-VALUE-BIND MULTIPLE-VALUE-CALL TRUNCATE LET* 
+; --> LDB SB-KERNEL:%LDB - 
+; ==>
+;   (* SB-C::QUOT 139968)
+; 
+; note: unable to recode as leas, shifts and adds due to type uncertainty: 
+; 
+; note: unable to
+;   recode as leas, shifts and adds
+; due to type uncertainty:
+;   The result is a (VALUES (UNSIGNED-BYTE 64) &OPTIONAL), not a (VALUES FIXNUM
+;                                                                        &REST T).
+
+; compiling (LET (# #) ...)
+; file: /home/dunham/benchmarksgame/bench/fastaredux/fastaredux.sbcl-4.sbcl
+; in: DEFUN RANDOM-FASTA-ADD-LINE
+;     (RANDOM-NEXT)
+; --> THE PROGN BLOCK LET SETF SETQ THE THE MOD LET REM NTH-VALUE 
+; --> MULTIPLE-VALUE-BIND MULTIPLE-VALUE-CALL TRUNCATE LET* LDB SB-KERNEL:%LDB 
+; --> - 
+; ==>
+;   (* SB-C::QUOT 139968)
+; 
+; note: unable to recode as leas, shifts and adds due to type uncertainty: 
+; 
+; note: unable to
+;   recode as leas, shifts and adds
+; due to type uncertainty:
+;   The result is a (VALUES (UNSIGNED-BYTE 64) &OPTIONAL), not a (VALUES FIXNUM
+;                                                                        &REST T).
+
+; compiling (LET (# # ...) ...)
+; file: /home/dunham/benchmarksgame/bench/fastaredux/fastaredux.sbcl-4.sbcl
+; in:
+;      LET ((ALU
+;        (CONCATENATE 'STRING "GGCCGGGCGCGGTGGCTCACGCCTGTAATCCCAGCACTTTGG"
+;                     "GAGGCCGAGGCGGGCGGATCACCTGAGGTCAGGAGTTCGAGA"
+;                     "CCAGCCTGGCCAACATGGTGAAACCCCGTCTCTACTAAAAAT"
+;                     "ACAAAAATTAGCCGGGCGTGGTGGCGCGCGCCTGTAATCCCA"
+;                     "GCTACTCGGGAGGCTGAGGCAGGAGAATCGCTTGAACCCGGG"
+;                     "AGGCGGAGGTTGCAGTGAGCCGAGATCGCGCCACTGCACTCC"
+;                     "AGCCTGGGCGACAGAGCGAGACTCCGTCTCAAAAA"))
+;       (IUB
+;        (SUM-AND-SCALE
+;         (FREQUIFY (#\a 0.27d0) (#\c 0.12d0) (#\g 0.12d0) (#\t 0.27d0)
+;                   (#\B 0.02d0) (#\D 0.02d0) (#\H 0.02d0) (#\K 0.02d0)
+;                   (#\M 0.02d0) (#\N 0.02d0) (#\R 0.02d0) ...)))
+;       (HOMO-SAPIENS
+;        (SUM-AND-SCALE
+;         (FREQUIFY (#\a 0.302954942668d0) (#\c 0.1979883004921d0)
+;                   (#\g 0.1975473066391d0) (#\t 0.3015094502008d0)))))
+;     (CONCATENATE 'STRING "GGCCGGGCGCGGTGGCTCACGCCTGTAATCCCAGCACTTTGG"
+;                  "GAGGCCGAGGCGGGCGGATCACCTGAGGTCAGGAGTTCGAGA"
+;                  "CCAGCCTGGCCAACATGGTGAAACCCCGTCTCTACTAAAAAT"
+;                  "ACAAAAATTAGCCGGGCGTGGTGGCGCGCGCCTGTAATCCCA"
+;                  "GCTACTCGGGAGGCTGAGGCAGGAGAATCGCTTGAACCCGGG"
+;                  "AGGCGGAGGTTGCAGTGAGCCGAGATCGCGCCACTGCACTCC"
+;                  "AGCCTGGGCGACAGAGCGAGACTCCGTCTCAAAAA")
+; --> APPLY MULTIPLE-VALUE-CALL LAMBDA FUNCTION 
+; ==>
+;   (LET* ((SB-C::.LENGTH. (+ 42 42 42 42 42 42 35))
+;          (SB-C::.POS. 287)
+;          (SB-C::.STRING. (MAKE-STRING SB-C::.LENGTH. :ELEMENT-TYPE 'CHARACTER)))
+;     (DECLARE (TYPE SB-INT:INDEX SB-C::.LENGTH. SB-C::.POS.)
+;              (MUFFLE-CONDITIONS COMPILER-NOTE))
+;     (PROGN
+;      (SETF (AREF SB-C::.STRING. #) #\G)
+;      (SETF (AREF SB-C::.STRING. #) #\G)
+;      (SETF (AREF SB-C::.STRING. #) #\C)
+;      (SETF (AREF SB-C::.STRING. #) #\C)
+;      (SETF (AREF SB-C::.STRING. #) #\G)
+;      (SETF (AREF SB-C::.STRING. #) #\G)
+;      (SETF (AREF SB-C::.STRING. #) #\G)
+;      (SETF (AREF SB-C::.STRING. #) #\C)
+;      (SETF (AREF SB-C::.STRING. #) #\G)
+;      (SETF (AREF SB-C::.STRING. #) #\C)
+;      (SETF (AREF SB-C::.STRING. #) #\G)
+;      ...)
+;     (PROGN
+;      (SETF (AREF SB-C::.STRING. #) #\G)
+;      (SETF (AREF SB-C::.STRING. #) #\A)
+;      (SETF (AREF SB-C::.STRING. #) #\G)
+;      (SETF (AREF SB-C::.STRING. #) #\G)
+;      (SETF (AREF SB-C::.STRING. #) #\C)
+;      (SETF (AREF SB-C::.STRING. #) #\C)
+;      (SETF (AREF SB-C::.STRING. #) #\G)
+;      (SETF (AREF SB-C::.STRING. #) #\A)
+;      (SETF (AREF SB-C::.STRING. #) #\G)
+;      (SETF (AREF SB-C::.STRING. #) #\G)
+;      (SETF (AREF SB-C::.STRING. #) #\C)
+;      ...)
+;     (PROGN
+;      (SETF (AREF SB-C::.STRING. #) #\C)
+;      (SETF (AREF SB-C::.STRING. #) #\C)
+;      (SETF (AREF SB-C::.STRING. #) #\A)
+;      (SETF (AREF SB-C::.STRING. #) #\G)
+;      (SETF (AREF SB-C::.STRING. #) #\C)
+;      (SETF (AREF SB-C::.STRING. #) #\C)
+;      (SETF (AREF SB-C::.STRING. #) #\T)
+;      (SETF (AREF SB-C::.STRING. #) #\G)
+;      (SETF (AREF SB-C::.STRING. #) #\G)
+;      (SETF (AREF SB-C::.STRING. #) #\C)
+;      (SETF (AREF SB-C::.STRING. #) #\C)
+;      ...)
+;     (PROGN
+;      (SETF (AREF SB-C::.STRING. #) #\A)
+;      (SETF (AREF SB-C::.STRING. #) #\C)
+;      (SETF (AREF SB-C::.STRING. #) #\A)
+;      (SETF (AREF SB-C::.STRING. #) #\A)
+;      (SETF (AREF SB-C::.STRING. #) #\A)
+;      (SETF (AREF SB-C::.STRING. #) #\A)
+;      (SETF (AREF SB-C::.STRING. #) #\A)
+;      (SETF (AREF SB-C::.STRING. #) #\T)
+;      (SETF (AREF SB-C::.STRING. #) #\T)
+;      (SETF (AREF SB-C::.STRING. #) #\A)
+;      (SETF (AREF SB-C::.STRING. #) #\G)
+;      ...)
+;     (PROGN
+;      (SETF (AREF SB-C::.STRING. #) #\G)
+;      (SETF (AREF SB-C::.STRING. #) #\C)
+;      (SETF (AREF SB-C::.STRING. #) #\T)
+;      (SETF (AREF SB-C::.STRING. #) #\A)
+;      (SETF (AREF SB-C::.STRING. #) #\C)
+;      (SETF (AREF SB-C::.STRING. #) #\T)
+;      (SETF (AREF SB-C::.STRING. #) #\C)
+;      (SETF (AREF SB-C::.STRING. #) #\G)
+;      (SETF (AREF SB-C::.STRING. #) #\G)
+;      (SETF (AREF SB-C::.STRING. #) #\G)
+;      (SETF (AREF SB-C::.STRING. #) #\A)
+;      ...)
+;     (PROGN
+;      (SETF (AREF SB-C::.STRING. #) #\A)
+;      (SETF (AREF SB-C::.STRING. #) #\G)
+;      (SETF (AREF SB-C::.STRING. #) #\G)
+;      (SETF (AREF SB-C::.STRING. #) #\C)
+;      (SETF (AREF SB-C::.STRING. #) #\G)
+;      (SETF (AREF SB-C::.STRING. #) #\G)
+;      (SETF (AREF SB-C::.STRING. #) #\A)
+;      (SETF (AREF SB-C::.STRING. #) #\G)
+;      (SETF (AREF SB-C::.STRING. #) #\G)
+;      (SETF (AREF SB-C::.STRING. #) #\T)
+;      (SETF (AREF SB-C::.STRING. #) #\T)
+;      ...)
+;     (PROGN
+;      (SETF (AREF SB-C::.STRING. #) #\A)
+;      (SETF (AREF SB-C::.STRING. #) #\G)
+;      (SETF (AREF SB-C::.STRING. #) #\C)
+;      (SETF (AREF SB-C::.STRING. #) #\C)
+;      (SETF (AREF SB-C::.STRING. #) #\T)
+;      (SETF (AREF SB-C::.STRING. #) #\G)
+;      (SETF (AREF SB-C::.STRING. #) #\G)
+;      (SETF (AREF SB-C::.STRING. #) #\G)
+;      (SETF (AREF SB-C::.STRING. #) #\C)
+;      (SETF (AREF SB-C::.STRING. #) #\G)
+;      (SETF (AREF SB-C::.STRING. #) #\A)
+;      ...)
+;     SB-C::.STRING.)
+; 
+; caught STYLE-WARNING:
+;   The variable SB-C::.POS. is defined but never used.
+; 
+; compilation unit finished
+;   caught 1 STYLE-WARNING condition
+;   printed 6 notes
+
+
+; /home/dunham/benchmarksgame_quadcore/fastaredux/tmp/fastaredux.sbcl-4.fasl written
+; compilation finished in 0:00:00.411
+[undoing binding stack and other enclosing state... done]
+[saving current Lisp image into sbcl.core:
+writing 5792 bytes from the read-only space at 0x0x20000000
+writing 3120 bytes from the static space at 0x0x20100000
+writing 47022080 bytes from the dynamic space at 0x0x1000000000
+done]
+### START fastaredux.sbcl-4.sbcl_run
+(main) (quit)
+### END fastaredux.sbcl-4.sbcl_run
+
+0.80s to complete and log all make actions
+
+COMMAND LINE:
+/usr/local/bin/sbcl --dynamic-space-size 500 --noinform --core sbcl.core --userinit /dev/null --load fastaredux.sbcl-4.sbcl_run 250000
+
+UNEXPECTED OUTPUT 
+
+Binary files _out and 250000_out differ
+
+(TRUNCATED) PROGRAM OUTPUT:
+>ONE Homo sapiens alu
+AGCCTGGGCGACAGAGCGAGACTCCGTCTCAAAAAGCACTCC                  
+                                                            
+                                                            
+                                                            
+                                               AGCCTGGGCGACA
+GAGCGAGACTCCGTCTCAAAAAGCACTCC                               
+                                                            
+                                                            
+                                                            
+                                  AGCCTGGGCGACAGAGCGAGACTCCG
+TCTCAAAAAGCACTCC                                            
+                                                            
+                                                            
+                                                            
+                     AGCCTGGGCGACAGAGCGAGACTCCGTCTCAAAAAGCAC
+TCC                                                         
+                                                            
+                                                            
+                                                            
+        AGCCTGGGCGACAGAGCGAGACTCCGTCTCAAAAAGCACTCC          
+                                                            
+                                                            
+                                                            
+                                                       AGCCT
+GGGCGACAGAGCGAGACTCCGTCTCAAAAAGCACTCC                       
+                                                            
+                                                            
+                                                            
+                                          AGCCTGGGCGACAGAGCG
+AGACTCCGTCTCAAAAAGCACTCC                                    
+                                                            
+                                                            
+                                                            
+                             AGCCTGGGCGACAGAGCGAGACTCCGTCTCA
+AAAAGCACTCC                                                 
+                                                            
+                                                            
+                                                            
+                AGCCTGGGCGACAGAGCGAGACTCCGTCTCAAAAAGCACTCC  
+                                                            
+                                                            
+                                                            
+                                                            
+   AGCCTGGGCGACAGAGCGAGACTCCGTCTCAAAAAGCACTCC               
+                                                            
+                                                            
+                                                            
+                                                  AGCCTGGGCG
+ACAGAGCGAGACTCCGTCTCAAAAAGCACTCC                            
+                                                            
+                                                            
+                                                            
+                                     AGCCTGGGCGACAGAGCGAGACT
+CCGTCTCAAAAAGCACTCC                                         
+                                                            
+                                                            
+                                                            
+                        AGCCTGGGCGACAGAGCGAGACTCCGTCTCAAAAAG
+CACTCC                                                      
+                                                            
+                                                            
+                                                            
+           AGCCTGGGCGACAGAGCGAGACTCCGTCTCAAAAAGCACTCC       
+                                                            
+                                                            
+                                                            
+                                                          AG
+CCTGGGCGACAGAGCGAGACTCCGTCTCAAAAAGCACTCC                    
+                                                            
+                                                            
+                                                            
+                                             AGCCTGGGCGACAGA
+GCGAGACTCCGTCTCAAAAAGCACTCC                                 
+                                                            
+                                                            
+                                                            
+                                AGCCTGGGCGACAGAGCGAGACTCCGTC
+TCAAAAAGCACTCC                                              
+                                                            
+                                                            
+                                                            
+                   AGCCTGGGCGACAGAGCGAGACTCCGTCTCAAAAAGCACTC
+C                                                           
+                                                            
+                                                            
+                                                            
+      AGCCTGGGCGACAGAGCGAGACTCCGTCTCAAAAAGCACTCC            
+                                                            
+                                                            
+                                                            
+                                                     AGCCTGG
+GCGACAGAGCGAGACTCCGTCTCAAAAAGCACTCC                         
+                                                            
+                                                            
+                                                            
+                                        AGCCTGGGCGACAGAGCGAG
+ACTCCGTCTCAAAAAGCACTCC                                      
+                                                            
+                                                            
+                                                            
+                           AGCCTGGGCGACAGAGCGAGACTCCGTCTCAAA
+AAGCACTCC                                                   
+                                                            
+                                                            
+                                                            
+              AGCCTGGGCGACAGAGCGAGACTCCGTCTCAAAAAGCACTCC    
+                                                            
+                                                            
+                                                            
+                                                            
+ AGCCTGGGCGACAGAGCGAGACTCCGTCTCAAAAAGCACTCC                 
+                                                            
+                                                            
+                                                            
+                                                AGCCTGGGCGAC
+AGAGCGAGACTCCGTCTCAAAAAGCACTCC                              
+                                                            
+                                                            
+                                                            
+                                   AGCCTGGGCGACAGAGCGAGACTCC
+GTCTCAAAAAGCACTCC                                           
+                                                            
+                                                            
+                                                            
+                      AGCCTGGGCGACAGAGCGAGACTCCGTCTCAAAAAGCA
+CTCC                                                        
+                                                            
+                                                            
+                                                            
+         AGCCTGGGCGACAGAGCGAGACTCCGTCTCAAAAAGCACTCC         
+                                                            
+                                                            
+                                                            
+                                                        AGCC
+TGGGCGACAGAGCGAGACTCCGTCTCAAAAAGCACTCC                      
+                                                            
+                                                            
+                                                            
+                                           AGCCTGGGCGACAGAGC
+GAGACTCCGTCTCAAAAAGCACTCC                                   
+                                                            
+                                                            
+                                                            
+                              AGCCTGGGCGACAGAGCGAGACTCCGTCTC
+AAAAAGCACTCC                                                
+                                                            
+                                                            
+                                                            
+                 AGCCTGGGCGACAGAGCGAGACTCCGTCTCAAAAAGCACTCC 
+                                                            
+                                                            
+                                                            
+                                                            
+    AGCCTGGGCGACAGAGCGAGACTCCGTCTCAAAAAGCACTCC              
+                                                            
+                                                            
+                                                            
+                                                   AGCCTGGGC
+GACAGAGCGAGACTCCGTCTCAAAAAGCACTCC                           
+                                                            
+                                                            
+                                                            
+                                      AGCCTGGGCGACAGAGCGAGAC
+TCCGTCTCAAAAAGCACTCC                                        
+                                                            
+                                                            
+                                                            
+                         AGCCTG

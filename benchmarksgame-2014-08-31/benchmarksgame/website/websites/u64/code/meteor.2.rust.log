@@ -1,0 +1,19 @@
+
+Thu, 03 Jul 2014 01:10:32 GMT
+
+MAKE:
+/usr/local/src/rust-0.11.0-x86_64-unknown-linux-gnu/bin/rustc --opt-level=3 meteor.rust-2.rs -o meteor.rust-2.rust_run
+meteor.rust-2.rs:29:32: 29:33 error: obsolete syntax: `~` notation for owned pointers
+meteor.rust-2.rs:29 fn read_args() -> Result<uint, ~str> {
+                                                   ^
+note: use `Box<T>` in `std::owned` instead
+error: aborting due to previous error
+make: [meteor.rust-2.rust_run] Error 101 (ignored)
+rm meteor.rust-2.rs
+0.06s to complete and log all make actions
+
+COMMAND LINE:
+./meteor.rust-2.rust_run 2098
+
+MAKE ERROR 
+
