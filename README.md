@@ -1,8 +1,8 @@
-Programming Language Classifier
+# Programming Language Classifier
 
 Create a classifier that can take snippets of code and guesses the programming language of the code.
 
-Languages to classify
+### Languages to classify
 - C (.gcc, .c)
 - C#
 - Common Lisp (.sbcl)
@@ -18,7 +18,7 @@ Languages to classify
 - Scala
 - Scheme (.racket)
 
-Steps:
+### Steps:
 
 1. Getting a corpus of programming languages
 
